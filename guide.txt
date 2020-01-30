@@ -1,0 +1,74 @@
+
+SLURM tutorial
+
+1) login to cluster
+
+	$ ssh hpclecture@sdlogin.sd.rub.de
+
+password is : Tiwlhtrapotc!
+
+	first letter of each word in this sentence : 
+	Today I will learn how to run a program on the cluster!
+
+--> reference on using the cluster: http://www.sd.rub.de/cluster_usage.html
+
+2) create your own folder
+
+	$ mkdir <your_folder_name>
+	$ cd <your_folder_name>
+
+3) load mpi environment
+
+	$ module load mpi
+	$ module load intel/2018
+	$ module load intel
+
+4) QUIZ : use SLURM commands to 
+	- find out how many nodes are there in the cluster?
+	- what are the jobs that are currently running?
+
+
+5) git clone the hpcc-ws1920 program into your own folder
+
+	$ git clone https://github.com/wanariffoo/hpcc_tutorial.git
+
+
+6) compile the program
+
+	$ cd hpcc_tutorial
+
+	// we do an out-of-source build
+	$ mkdir build
+	$ cd build
+
+	// cmake, then make
+	$ CC=mpiicc CXX=mpiicpc cmake ..
+	$ make
+
+7) go back to the parent folder and edit the batchscript, script.sh
+	
+	$ cd ..
+	$ vim script.sh
+
+	NOTE: using vim
+		- press 'i' to edit the file
+		- to quit without saving : press ESC followed by :q!
+		- to quit and save : press ESC followed by :x
+
+8) specify your job-name, workdir and output directory, and then save and exit vim
+		
+9) QUIZ : submit the batch script
+
+10) QUIZ : use a SLURM command to see the running job
+
+11) QUIZ : use a SLURM command to see if the job completed successfully
+
+12) an output file will be created in the parent folder. Using your job id, print the result in the terminal
+
+	$ cat <your_job_id>.out
+
+13) keep note of the time taken by the application
+
+14) QUIZ : now try it with 4 and 16 processes and keep track of the time taken for each
+	HINT : change only this
+		--ntasks-per-node=4 or =16
