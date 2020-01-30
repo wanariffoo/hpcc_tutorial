@@ -6,8 +6,8 @@
 #SBATCH --time=00:05:00
 #SBATCH --partition=short
 #SBATCH --mem=80000
-#SBATCH --workdir=/hpclecture/{your-folder-name}/hpcc_tutorial
-#SBATCH --output=/hpclecture/{your-folder-name}/hpcc_tutorial/%j.out
+#SBATCH --workdir=/sdhome/hpclecture/{your-folder-name}/hpcc_tutorial
+#SBATCH --output=/sdhome/hpclecture/{your-folder-name}/hpcc_tutorial/%j.out
 
 
 module load mpi
